@@ -61,9 +61,14 @@ header nav a {
 }
 
 .hero article img {
-    position: absolute;
     float: right;
+    width: 125px;
     margin: 0 0 1rem 1rem;
+}
+
+.hero article {
+    position: absolute;
+    z-index: 2;
 }
 
 .hero h1 {
@@ -78,21 +83,15 @@ header nav a {
         /* melhora legibilidade */
 }
 
-.hero img {
-    position: absolute;
-            /* imagem posicionada dentro da seção */
+.hero > img {
+    position: absolute; /* imagem posicionada dentro da seção */
     top: 0;
     left: 0;
-    width: 100%;
-            /* cobre toda a largura */
-    height: 100%;
-            /* cobre toda a altura */
-    object-fit: cover;
-            /* mantém proporção */
-    opacity: 0.5;
-            /* deixa a imagem translúcida para destacar o texto */
-    z-index: 1;
-            /* imagem atrás do texto */
+    width: 100%; /* cobre toda a largura */
+    height: 100%; /* cobre toda a altura */
+    object-fit: cover; /* mantém proporção */
+    opacity: 0.5; /* deixa a imagem translúcida para destacar o texto */
+    z-index: 1; /* imagem atrás do texto */
     border-radius: 0;
 }
 
