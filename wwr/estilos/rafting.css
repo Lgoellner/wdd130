@@ -7,80 +7,188 @@
     --fonte-body: Arial, Helvetica, sans-serif;
 }
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-header {
-    background-color: var(--cor-primaria);
-    color: var(--cor-destaque2);
-}
-
 body {
-    font-family: var(--fonte-body);
-    color: var(--cor-destaque1);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
-header, main, footer {
-    width: 840px;
-    margin: 0 auto;
+/* Header */
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #0a3d62;
 }
 
-h1, h2 {
-    font-family: var(--fonte-titulo);
-    color: var(--cor-destaque1);
-    text-align: center;
+header img {
+    height: 150px;
+    margin-left: 40px;
+    border-radius: 8%;
 }
 
-nav, p, section, article {
-    margin: 16px;
-    padding: 8px;
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
 }
 
-.redes-sociais a {
+header nav a {
     text-decoration: none;
+    color: #fff;
+    font-weight: bold;
 }
 
+/* Hero (banner principal) */
 .hero {
     position: relative;
-}
-
-.hero img {
-    display: block;
-    width: 100%;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    background: #9bdceb;
+    background-size: cover;
+    min-height: 400px;
 }
 
 .hero h1 {
+    position: relative;
+    z-index: 2;
+        /* garante que o texto fique acima da imagem */
+    font-size: 3rem;
+    color: #62a8b9;
+        /* contraste com a imagem */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        /* melhora legibilidade */
+}
+
+.hero img {
     position: absolute;
-    top: 20px;
+            /* imagem posicionada dentro da seção */
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 16px;
+            /* cobre toda a largura */
+    height: 100%;
+            /* cobre toda a altura */
+    object-fit: cover;
+            /* mantém proporção */
+    opacity: 0.5;
+            /* deixa a imagem translúcida para destacar o texto */
+    z-index: 1;
+            /* imagem atrás do texto */
+    border-radius: 0;;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    color: #133e66;
+}
+
+.hero-text {
+    text-align: left;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+.hero p {
+    position: relative;
+    z-index: 2;
+    color: #181235;
+    max-width: 600px;
+    margin-top: 1rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* História */
+.historia {
+    padding: 3rem 2rem;
+    background: #f1f2f6;
+}
+
+.historia h2 {
     text-align: center;
-    opacity: 0.7;
-    background-color: var(--cor-destaque1);
-    color: #fff;
-}
+    margin-bottom: 2rem;
+    }
 
-.hero article img {
-    float: right;
-    width: 125px;
-}
-
-.hero article {
-    position: absolute;
-    bottom: 5px;
-    left: auto;
-    display: left;
+.historia .colunas {
+    display: flex;
     align-items: center;
-    gap: 20px;
-    border-radius: 10px;
-    opacity: 0.9;
-    background-color: var(--cor-destaque2);
+    justify-content: space-around;
+    gap: 2rem;
 }
 
+.historia .colunas p {
+    flex: 1;
+}
+
+.historia .colunas img {
+    width: 250px;
+    border-radius: 8px;
+}
+
+/* Aventura */
+.aventura {
+    /*padding: 3rem;*/
+    justify-content: space-between;
+    background: #dff9fb;
+}
+
+.aventura h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.aventura .galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.2rem;
+}
+
+.aventura figure {
+    text-align: center;
+}
+
+.aventura img {
+    width: 70%;
+    border-radius: 8px;
+}
+
+.aventura figcaption {
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Footer */
 footer {
-    background-color: var(--cor-primaria);
+    background: #0a3d62;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+footer ul img {
+    width: 40px;
 }
