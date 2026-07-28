@@ -60,19 +60,18 @@ header nav a {
     min-height: 400px;
 }
 
-.hero img {
-    float: right;
-}
-
-.hero article {
+.hero article img {
     position: absolute;
+    float: right;
+    width: 150px;
+    margin: 0 0 1rem 1rem;
 }
 
 .hero h1 {
     position: absolute;
     z-index: 2;
         /* garante que o texto fique acima da imagem */
-    font-family: var(--fonte-titulo)
+    font-family: var(--fonte-titulo);
     font-size: 3rem;
     color: var(--cor-destaque1);
         /* contraste com a imagem */
@@ -154,7 +153,7 @@ header nav a {
 .aventura {
     /*padding: 3rem;*/
     justify-content: space-between;
-    background: #dff9fb;
+    background: var(--cor-destaque2);
 }
 
 .aventura h2 {
