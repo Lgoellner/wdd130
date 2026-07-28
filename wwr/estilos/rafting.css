@@ -17,7 +17,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--cor-destaque1);
 }
 
 /* Header */
@@ -43,7 +43,7 @@ header nav ul {
 
 header nav a {
     text-decoration: none;
-    color: #fff;
+    color: var(--cor-primaria);
     font-weight: bold;
 }
 
@@ -55,17 +55,23 @@ header nav a {
     align-items: center;
     justify-content: flex-start;
     text-align: center;
-    background: #9bdceb;
+    background: var(--cor-primaria);
     background-size: cover;
     min-height: 400px;
 }
 
+.hero article img {
+    position: absolute;
+    float: right;
+
+}
+
 .hero h1 {
-    position: relative;
+    position: absolute;
     z-index: 2;
         /* garante que o texto fique acima da imagem */
     font-size: 3rem;
-    color: #62a8b9;
+    color: var(--cor-destaque1);
         /* contraste com a imagem */
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         /* melhora legibilidade */
@@ -92,7 +98,7 @@ header nav a {
 .hero-text {
     position: relative;
     z-index: 2;
-    color: #133e66;
+    color: var(--cor-destaque1);
 }
 
 .hero-text {
@@ -108,7 +114,7 @@ header nav a {
 .hero p {
     position: relative;
     z-index: 2;
-    color: #181235;
+    color: var(--cor-destaque1);
     max-width: 600px;
     margin-top: 1rem;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
