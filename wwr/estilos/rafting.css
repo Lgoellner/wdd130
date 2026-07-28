@@ -60,7 +60,7 @@ header nav a {
     min-height: 400px;
 }
 
-.hero article img {
+.hero article {
     position: absolute;
     float: right;
     width: 150px;
@@ -94,7 +94,7 @@ header nav a {
             /* deixa a imagem translúcida para destacar o texto */
     z-index: 1;
             /* imagem atrás do texto */
-    border-radius: 0;;
+    border-radius: 0;
 }
 
 .hero-text {
