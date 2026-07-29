@@ -75,7 +75,7 @@ nav a {
 
 .hero article {
     padding: 150px;
-    position: center;
+    position: absolute;
     width: 100%;
     z-index: 2;
 }
