@@ -110,16 +110,6 @@ nav a {
     color: var(--cor-destaque1);
 }
 
-.hero-text {
-    text-align: right;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero-text p {
-    font-size: 1.2rem;
-}
-
 .hero p {
     position: relative;
     z-index: 2;
