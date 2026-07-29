@@ -68,18 +68,21 @@ nav a {
 
 .hero article img {
     float: right;
-    width: 125px;
+    width: 250px;
     margin: 0 0 1rem 1rem;
+    border-radius: 8%;
 }
 
 .hero article {
-    position: absolute;
+    padding: 150px;
+    position: center;
+    width: 100%;
     z-index: 2;
 }
 
 .hero h1 {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
         /* garante que o texto fique acima da imagem */
     font-family: var(--fonte-titulo);
     font-size: 3rem;
@@ -96,7 +99,7 @@ nav a {
     width: 100%; /* cobre toda a largura */
     height: 100%; /* cobre toda a altura */
     object-fit: cover; /* mantém proporção */
-    opacity: 0.5; /* deixa a imagem translúcida para destacar o texto */
+    opacity: 0.6; /* deixa a imagem translúcida para destacar o texto */
     z-index: 1; /* imagem atrás do texto */
     border-radius: 0;
 }
@@ -108,7 +111,7 @@ nav a {
 }
 
 .hero-text {
-    text-align: left;
+    text-align: right;
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
@@ -149,13 +152,13 @@ nav a {
 }
 
 .historia .colunas img {
-    width: 250px;
+    width: 350px;
     border-radius: 8px;
 }
 
 /* Aventura */
 .aventura {
-    /*padding: 3rem;*/
+    padding: 3rem;
     justify-content: space-between;
     background: var(--cor-destaque2);
 }
@@ -167,7 +170,7 @@ nav a {
 
 .aventura .galeria {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 0.2rem;
 }
 
@@ -176,7 +179,7 @@ nav a {
 }
 
 .aventura img {
-    width: 70%;
+    width: 80%;
     border-radius: 8px;
 }
 
