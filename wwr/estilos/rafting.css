@@ -22,29 +22,35 @@ body {
 
 /* Header */
 header {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 150px 1fr;
     align-items: center;
-    padding: 1rem 2rem;
-    background: #0a3d62;
+    padding: 1rem;
 }
 
 header img {
-    height: 150px;
-    margin-left: 40px;
-    border-radius: 8%;
+    width: 120px;
 }
 
-header nav ul {
-    list-style: none;
+nav {
+    justify-self: end;
+}
+
+nav ul {
     display: flex;
-    gap: 1.5rem;
+    justify-content: space-around;
+    /* distribui os links */
+    align-items: center;
+    /* centraliza verticalmente */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
 }
 
-header nav a {
+nav a {
     text-decoration: none;
-    color: var(--cor-primaria);
-    font-weight: bold;
+    padding: 0.5rem 1rem;
 }
 
 /* Hero (banner principal) */
