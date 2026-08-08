@@ -21,36 +21,52 @@ body {
 }
 
 /* Header */
-header {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    align-items: center;
-    padding: 1rem;
-}
-
-header img {
-    width: 120px;
-}
-
-nav {
-    justify-self: end;
-}
-
-nav ul {
+.topo {
+    width: calc(100% - 32px);
+    max-width: 1200px;
+    height: 130px;
+    margin: 16px auto 0;
+    border: 2px solid #777;
     display: flex;
-    justify-content: space-around;
-    /* distribui os links */
     align-items: center;
-    /* centraliza verticalmente */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 1rem;
+    justify-content: space-between;
+    padding: 14px 50px 14px 110px;
 }
 
-nav a {
+.logo {
+    width: 150px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 120px;
+    height: 96px;
+    object-fit: contain;
+    display: block;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    color: #111;
+    background: #fff;
+    border: 1px solid #777;
+    padding: 8px 18px;
+    min-width: 105px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.menu a + a {
+    border-left: 0;
 }
 
 /* Hero (banner principal) */
@@ -180,20 +196,44 @@ nav a {
 
 /* Footer */
 footer {
-    background: var(--cor-primaria);
-    color: var(--cor-secundaria);
-    text-align: center;
-    padding: 1.5rem;
-}
-
-footer ul {
-    list-style: none;
+    width: calc(100% - 40px);
+    max-width: 1160px;
+    height: 61px;
+    margin: 0 auto 8px;
+    border: 2px solid #777;
     display: flex;
-    justify-content: right;
-    gap: 1rem;
-    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 14px;
 }
 
-footer ul img {
-    width: 40px;
+footer p {
+    margin: 0;
+}
+
+.social {
+    position: absolute;
+    right: 28px;
+    display: flex;
+    gap: 12px;
+}
+
+.social a {
+    width: 34px;
+    height: 34px;
+    border: 2px solid #777;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    color: #111;
+    font-size: 27px;
+    line-height: 1;
+}
+
+.social img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
 }
