@@ -1,13 +1,17 @@
-:root {
+css:root {
     --cor-primaria: #ffffff;
     --cor-secundaria: #f4a261;
     --cor-destaque1: #1e4e60;
     --cor-destaque2: #e9c46a;
+
     --fonte-titulo: "Times New Roman", "Georgia", serif;
     --fonte-body: Arial, Helvetica, sans-serif;
 }
 
-/* Reset básico */
+/* =========================================
+   RESET BÁSICO
+   ========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -20,136 +24,382 @@ body {
     color: var(--cor-destaque1);
 }
 
-/* Header */
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+
 .topo {
     width: calc(100% - 32px);
     max-width: 1200px;
+
+    min-height: 130px;
     height: 130px;
+
     margin: 16px auto 0;
-    border: 2px solid #777;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 50px 14px 110px;
+
+    padding: 10px 40px;
+
+    position: relative;
+    z-index: 10;
 }
 
 .logo {
     width: 150px;
-    height: 96px;
+    height: 110px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     flex-shrink: 0;
 }
 
 .logo img {
-    width: 120px;
-    height: 96px;
+    width: 150px;
+    height: 115px;
+
     object-fit: contain;
+
     display: block;
 }
 
+/* =========================================
+   MENU
+   ========================================= */
+
 .menu {
     display: flex;
+
     align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    flex-wrap: nowrap;
 }
 
 .menu a {
+    display: block;
+
     text-decoration: none;
+
     color: #111;
-    background: #fff;
-    border: 1px solid #777;
-    padding: 8px 18px;
-    min-width: 105px;
+
+    padding: 10px 16px;
+
+    min-width: auto;
+
     text-align: center;
-    font-size: 14px;
+
+    font-size: 18px;
+
+    white-space: nowrap;
+
+    transition: 0.3s;
 }
 
-.menu a + a {
-    border-left: 0;
+.menu a:hover {
+    color: #0b6e4f;
 }
 
-/* Hero (banner principal) */
+/* =========================================
+   PÁGINA INICIAL
+   HERO / BANNER PRINCIPAL
+   ========================================= */
+
 .hero {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    background: var(--cor-primaria);
-    background-size: cover;
-    min-height: 400px;
-}
 
-.hero article img {
-    float: right;
-    width: 250px;
-    margin: 0 0 1rem 1rem;
-    border-radius: 8%;
-}
-
-.hero article {
-    padding: 150px;
-    position: absolute;
     width: 100%;
-    z-index: 2;
+    height: 560px;
+
+    overflow: hidden;
 }
 
-.hero h1 {
+.hero-imagem {
     position: absolute;
-    z-index: 3;
-        /* garante que o texto fique acima da imagem */
-    font-family: var(--fonte-titulo);
-    font-size: 3rem;
-    color: var(--cor-destaque1);
-        /* contraste com a imagem */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-        /* melhora legibilidade */
-}
 
-.hero > img {
-    position: absolute; /* imagem posicionada dentro da seção */
     top: 0;
     left: 0;
-    width: 100%; /* cobre toda a largura */
-    height: 100%; /* cobre toda a altura */
-    object-fit: cover; /* mantém proporção */
-    opacity: 0.6; /* deixa a imagem translúcida para destacar o texto */
-    z-index: 1; /* imagem atrás do texto */
-    border-radius: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    opacity: 0.6;
+
+    z-index: 1;
 }
 
-.hero-text {
-    position: relative;
+.hero-conteudo {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    max-width: 850px;
+
+    text-align: center;
+
+    color: #fff;
+
     z-index: 2;
-    color: var(--cor-destaque1);
 }
 
-.hero p {
-    position: relative;
-    z-index: 2;
-    color: var(--cor-destaque1);
-    max-width: 600px;
-    margin-top: 1rem;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+.hero-conteudo h1 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 48px;
+
+    margin-bottom: 20px;
+
+    color: #fff;
+
+    text-shadow: 2px 2px 5px #000;
 }
 
-/* História */
+.hero-conteudo p {
+    font-size: 21px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+
+    color: #fff;
+
+    text-shadow: 1px 1px 4px #000;
+}
+
+/* =========================================
+   BOTÃO DE AÇÃO
+   ========================================= */
+
+.botao-acao {
+    display: inline-block;
+
+    padding: 14px 28px;
+
+    background-color: #0b6e4f;
+    color: #fff;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.botao-acao:hover {
+    background-color: #084c3a;
+}
+
+/* =========================================
+   APRESENTAÇÃO DA PÁGINA INICIAL
+   CSS GRID
+   ========================================= */
+
+.apresentacao {
+    width: calc(100% - 32px);
+    max-width: 1200px;
+
+    margin: 60px auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+    align-items: center;
+}
+
+.apresentacao img {
+    width: 100%;
+    height: 330px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 8px;
+}
+
+.apresentacao h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 32px;
+
+    margin-bottom: 20px;
+}
+
+.apresentacao p {
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 12px;
+}
+
+/* Organização do Grid */
+
+.texto-introducao {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.imagem-introducao {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.imagem-aventura {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.texto-aventura {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* =========================================
+   LINK PARA PASSEIOS
+   ========================================= */
+
+.link-passeios {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    color: #0b6e4f;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+.link-passeios:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   NEWSLETTER DA PÁGINA INICIAL
+   ========================================= */
+
+.newsletter-home {
+    width: 100%;
+
+    padding: 60px 20px;
+
+    background-color: #eee;
+}
+
+.newsletter-conteudo {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.newsletter-conteudo h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+.newsletter-conteudo p {
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+/* Formulário da Newsletter */
+
+.form-newsletter {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px 20px;
+
+    text-align: left;
+}
+
+.form-newsletter label {
+    font-weight: bold;
+}
+
+.form-newsletter input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 4px;
+
+    font-size: 16px;
+}
+
+.form-newsletter button {
+    grid-column: 1 / 3;
+
+    padding: 14px;
+
+    border: none;
+
+    background-color: #0b6e4f;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    border-radius: 5px;
+}
+
+.form-newsletter button:hover {
+    background-color: #084c3a;
+}
+
+/* =========================================
+   HISTÓRIA
+   ========================================= */
+
 .historia {
     padding: 3rem 2rem;
+
     background: #f1f2f6;
 }
 
 .historia h2 {
     text-align: center;
+
     margin-bottom: 2rem;
-    }
+}
 
 .historia .colunas {
     display: flex;
+
     align-items: center;
+
     justify-content: space-around;
+
     gap: 2rem;
 }
 
@@ -159,24 +409,33 @@ body {
 
 .historia .colunas img {
     width: 350px;
+
     border-radius: 8px;
 }
 
-/* Aventura */
+/* =========================================
+   AVENTURA
+   ========================================= */
+
 .aventura {
     padding: 3rem;
+
     justify-content: space-between;
+
     background: var(--cor-destaque2);
 }
 
 .aventura h2 {
     text-align: center;
+
     margin-bottom: 2rem;
 }
 
 .aventura .galeria {
     display: grid;
+
     grid-template-columns: repeat(5, 1fr);
+
     gap: 0.2rem;
 }
 
@@ -186,54 +445,83 @@ body {
 
 .aventura img {
     width: 80%;
+
     border-radius: 8px;
 }
 
 .aventura figcaption {
     margin-top: 0.5rem;
+
     font-style: italic;
 }
 
+/* =========================================
+   INTRODUÇÃO
+   ========================================= */
+
 .intro {
     text-align: center;
+
     margin: 14px auto 17px;
 }
 
 .intro h1 {
     margin: 0 0 4px;
+
     font-size: 28px;
+
     font-weight: 400;
 }
 
 .intro p {
     margin: 1px 0;
+
     font-size: 17px;
+
     font-weight: 700;
 }
+
+/* =========================================
+   PÁGINA DE CONTATO
+   ========================================= */
 
 .contato {
     width: calc(100% - 40px);
     max-width: 1160px;
+
     margin: 0 auto 25px;
+
     display: grid;
+
     grid-template-columns: 48% 52%;
+
     gap: 38px;
+
     align-items: center;
 }
 
+/* Mapa */
+
 .mapa {
     height: 302px;
+
     border: 1px solid #aaa;
+
     position: relative;
+
     overflow: hidden;
 }
 
 .mapa iframe {
     width: 100%;
     height: 100%;
+
     border: 0;
+
     display: block;
 }
+
+/* Formulário */
 
 .formulario {
     padding-top: 0;
@@ -241,14 +529,16 @@ body {
 
 .campo.linha {
     display: grid;
+
     grid-template-columns: 45px 1fr;
+
     align-items: center;
+
     margin-bottom: 7px;
 }
 
 .campo label,
-.radio-group legend,
-.newsletter {
+.radio-group legend {
     font-size: 14px;
 }
 
@@ -256,10 +546,15 @@ input[type="text"],
 input[type="email"],
 textarea {
     width: 70%;
+
     border: 2px solid #777;
+
     border-radius: 3px;
+
     padding: 7px 9px;
+
     font-family: inherit;
+
     font-size: 14px;
 }
 
@@ -268,141 +563,193 @@ input[type="email"] {
     height: 31px;
 }
 
+/* Radio */
+
 .radio-group {
     border: 0;
+
     margin: 5px 0 9px;
+
     padding: 0 0 0 80px;
+
     position: relative;
+
     min-height: 75px;
 }
 
 .radio-group legend {
     position: absolute;
+
     left: 0;
     top: 0;
+
     width: 75px;
+
     font-weight: 700;
+
     padding: 0;
 }
 
 .radio-group label {
     display: block;
+
     margin: 0 0 8px;
+
     font-size: 14px;
 }
 
 .radio-group input {
     margin: 0 7px 0 0;
+
     vertical-align: -2px;
 }
 
+/* Mensagem */
+
 .mensagem label {
     display: block;
+
     font-weight: 700;
+
     margin-bottom: 2px;
 }
 
 textarea {
     height: 60px;
+
     resize: none;
 }
 
-.newsletter {
+/* Newsletter do formulário de contato */
+
+.formulario .newsletter {
     display: flex;
+
     align-items: center;
+
     gap: 7px;
+
     margin: 6px 0 9px;
+
+    font-size: 14px;
 }
 
-.newsletter input {
+.formulario .newsletter input {
     width: 15px;
     height: 15px;
+
     margin: 0;
 }
 
+/* Botão do formulário */
+
 .formulario button {
     width: 75%;
+
     height: 32px;
+
     border: 2px solid #777;
+
     border-radius: 3px;
+
     background: blue;
+
     color: white;
+
     font-weight: 700;
+
     cursor: pointer;
 }
+
+/* =========================================
+   EQUIPE
+   ========================================= */
 
 .equipe {
     width: calc(100% - 40px);
     max-width: 1160px;
+
     min-height: 156px;
+
     margin: 0 auto 10px;
+
     border: 2px solid #777;
+
     padding: 7px 35px 10px;
 }
 
 .equipe h2 {
     margin: 0 0 3px;
+
     text-align: center;
+
     font-size: 24px;
 }
 
 .perfis {
     display: flex;
+
     justify-content: space-around;
-    align-items: start;
+
+    align-items: flex-start;
 }
 
 .perfil {
     text-align: center;
+
     width: 180px;
 }
 
 .foto-placeholder {
     width: 96px;
     height: 80px;
+
     margin: 0 auto 3px;
+
     position: relative;
+
     overflow: hidden;
+
     background: #f2f2f2;
 }
 
 .foto-placeholder img {
     width: 100%;
     height: 100%;
+
     display: block;
+
     object-fit: cover;
+
     border-radius: 8px;
 }
 
 .perfil p {
     margin: 0;
+
     font-size: 14px;
 }
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
 
 footer {
     width: calc(100% - 40px);
     max-width: 1160px;
-    height: 61px;
-    margin: 0 auto 8px;
-    border: 2px solid #777;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    font-size: 14px;
-}
 
-/* Footer */
-footer {
-    width: calc(100% - 40px);
-    max-width: 1160px;
     height: 61px;
+
     margin: 0 auto 8px;
-    border: 2px solid #777;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     position: relative;
+
     font-size: 14px;
 }
 
@@ -410,42 +757,65 @@ footer p {
     margin: 0;
 }
 
+/* Redes sociais */
+
 .social {
     position: absolute;
+
     right: 28px;
+
     display: flex;
+
     gap: 12px;
 }
 
 .social a {
     width: 34px;
     height: 34px;
+
     display: grid;
+
     place-items: center;
+
     text-decoration: none;
+
     color: #111;
+
     font-size: 27px;
+
     line-height: 1;
 }
 
 .social img {
     width: 30px;
     height: 30px;
+
     object-fit: contain;
+
     display: block;
 }
 
+/* =========================================
+   RESPONSIVIDADE — TABLET
+   ========================================= */
+
 @media (max-width: 800px) {
+
     .topo {
         height: auto;
+
         min-height: 130px;
+
         padding: 15px 20px;
+
         flex-direction: column;
+
         gap: 12px;
     }
 
     .menu {
         flex-wrap: wrap;
+
         justify-content: center;
     }
 
@@ -459,13 +829,48 @@ footer p {
 
     footer {
         height: auto;
+
         min-height: 80px;
+
         padding: 12px 100px 12px 15px;
+
         justify-content: flex-start;
+    }
+
+    /* Página inicial */
+
+    .hero {
+        height: 500px;
+    }
+
+    .hero-conteudo h1 {
+        font-size: 40px;
+    }
+
+    .hero-conteudo p {
+        font-size: 18px;
+    }
+
+    .apresentacao {
+        grid-template-columns: 1fr;
+    }
+
+    .texto-introducao,
+    .imagem-introducao,
+    .imagem-aventura,
+    .texto-aventura {
+        grid-column: 1;
+
+        grid-row: auto;
     }
 }
 
+/* =========================================
+   RESPONSIVIDADE — CELULAR
+   ========================================= */
+
 @media (max-width: 500px) {
+
     .intro h1 {
         font-size: 22px;
     }
@@ -476,11 +881,13 @@ footer p {
 
     .menu a {
         min-width: 0;
+
         flex: 1 1 45%;
     }
 
     .equipe {
         padding-left: 10px;
+
         padding-right: 10px;
     }
 
@@ -494,5 +901,1714 @@ footer p {
 
     .perfil p {
         font-size: 12px;
+    }
+
+    /* Página inicial */
+
+    .hero {
+        height: 450px;
+    }
+
+    .hero-conteudo {
+        width: 92%;
+    }
+
+    .hero-conteudo h1 {
+        font-size: 32px;
+    }
+
+    .hero-conteudo p {
+        font-size: 16px;
+    }
+
+    .botao-acao {
+        padding: 12px 20px;
+    }
+
+    .apresentacao {
+        width: calc(100% - 24px);
+
+        margin: 40px auto;
+
+        gap: 30px;
+    }
+
+    .apresentacao h2 {
+        font-size: 27px;
+    }
+
+    .apresentacao p {
+        font-size: 16px;
+    }
+
+    .apresentacao img {
+        height: 250px;
+    }
+
+    /* Newsletter */
+
+    .newsletter-home {
+        padding: 45px 15px;
+    }
+
+    .newsletter-conteudo h2 {
+        font-size: 27px;
+    }
+
+    .form-newsletter {
+        grid-template-columns: 1fr;
+    }
+
+    .form-newsletter button {
+        grid-column: 1;
+    }
+}
+
+/* =========================================
+   SOBRE NÓS — HERO
+   ========================================= */
+
+.sobre-hero {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 500px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.sobre-hero-imagem {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    opacity: 0.65;
+
+    z-index: 1;
+}
+
+.sobre-hero-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    width: calc(100% - 40px);
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    color: #fff;
+}
+
+.sobre-hero-subtitulo {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: #fff;
+
+    text-shadow: 1px 1px 4px #000;
+}
+
+.sobre-hero-conteudo h1 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 52px;
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+
+    color: #fff;
+
+    text-shadow: 2px 2px 6px #000;
+}
+
+.sobre-hero-conteudo p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color: #fff;
+
+    text-shadow: 1px 1px 5px #000;
+}
+
+/* =========================================
+   NOSSA HISTÓRIA
+   ========================================= */
+
+.sobre-historia {
+    width: calc(100% - 32px);
+    max-width: 1200px;
+
+    margin: 70px auto;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.sobre-historia-texto {
+    padding: 10px 20px;
+}
+
+.sobre-historia h2,
+.sobre-experiencia h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+}
+
+.sobre-historia p,
+.sobre-experiencia p {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+.sobre-historia-imagem {
+    width: 100%;
+}
+
+.sobre-historia-imagem img {
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 8px;
+}
+
+/* =========================================
+   NOSSA EXPERIÊNCIA
+   ========================================= */
+
+.sobre-experiencia {
+    width: 100%;
+
+    padding: 70px 20px;
+
+    background-color: #f1f2f6;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 600px) minmax(0, 600px);
+
+    justify-content: center;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.sobre-experiencia-imagem {
+    width: 100%;
+}
+
+.sobre-experiencia-imagem img {
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 8px;
+}
+
+.sobre-experiencia-texto {
+    padding: 10px 20px;
+}
+
+/* =========================================
+   DESTINOS E AVENTURAS
+   ========================================= */
+
+.sobre-aventuras {
+    width: calc(100% - 32px);
+    max-width: 1200px;
+
+    margin: 70px auto;
+}
+
+.sobre-aventuras-cabecalho {
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 40px;
+}
+
+.sobre-aventuras-cabecalho .secao-subtitulo {
+    color: #0b6e4f;
+}
+
+.sobre-aventuras-cabecalho h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+.sobre-aventuras-cabecalho p {
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+/* Galeria */
+
+.sobre-galeria {
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.sobre-galeria figure {
+    min-width: 0;
+
+    margin: 0;
+
+    text-align: center;
+}
+
+.sobre-galeria img {
+    width: 100%;
+
+    height: 190px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 8px;
+
+    transition: transform 0.3s ease;
+}
+
+.sobre-galeria figure:hover img {
+    transform: scale(1.03);
+}
+
+.sobre-galeria figcaption {
+    margin-top: 10px;
+
+    font-weight: bold;
+
+    font-size: 15px;
+}
+
+/* =========================================
+   CHAMADA FINAL
+   ========================================= */
+
+.sobre-cta {
+    width: 100%;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    background-color: var(--cor-destaque2);
+}
+
+.sobre-cta h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+.sobre-cta p {
+    font-size: 18px;
+
+    margin-bottom: 25px;
+}
+
+/* =========================================
+   PÁGINA PASSEIOS
+   HERO
+   ========================================= */
+
+.passeios-hero {
+    position: relative;
+
+    width: 100%;
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.passeios-hero-imagem {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0.65;
+
+    z-index: 1;
+}
+
+.passeios-hero-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    width: calc(100% - 40px);
+    max-width: 850px;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    color: #fff;
+}
+
+.passeios-hero-conteudo > span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    text-shadow: 1px 1px 4px #000;
+}
+
+.passeios-hero-conteudo h1 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 52px;
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+
+    color: #fff;
+
+    text-shadow: 2px 2px 6px #000;
+}
+
+.passeios-hero-conteudo p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    font-size: 20px;
+    line-height: 1.7;
+
+    color: #fff;
+
+    text-shadow: 1px 1px 5px #000;
+}
+
+/* =========================================
+   INTRODUÇÃO
+   ========================================= */
+
+.passeios-introducao {
+    width: calc(100% - 32px);
+    max-width: 800px;
+
+    margin: 70px auto 45px;
+
+    text-align: center;
+}
+
+.passeios-introducao .secao-subtitulo {
+    color: #0b6e4f;
+}
+
+.passeios-introducao h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 40px;
+
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+}
+
+.passeios-introducao p {
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+/* =========================================
+   LISTA DE PASSEIOS
+   GRID
+   ========================================= */
+
+.passeios-lista {
+    width: calc(100% - 32px);
+    max-width: 1200px;
+
+    margin: 0 auto 80px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+/* Card */
+
+.passeio-card {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    background: #fff;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.passeio-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+/* Imagem */
+
+.passeio-card-imagem {
+    position: relative;
+
+    width: 100%;
+    height: 260px;
+
+    overflow: hidden;
+}
+
+.passeio-card-imagem img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.passeio-card:hover .passeio-card-imagem img {
+    transform: scale(1.04);
+}
+
+/* Número */
+
+.passeio-numero {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #0b6e4f;
+
+    color: #fff;
+
+    font-weight: bold;
+
+    font-size: 16px;
+}
+
+/* Conteúdo */
+
+.passeio-card-conteudo {
+    padding: 28px;
+}
+
+.passeio-categoria {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #0b6e4f;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.passeio-card-conteudo h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 29px;
+
+    line-height: 1.2;
+
+    margin-bottom: 16px;
+}
+
+.passeio-card-conteudo p {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 12px;
+}
+
+.passeio-card-conteudo ul {
+    margin: 18px 0 0;
+
+    padding-left: 20px;
+}
+
+.passeio-card-conteudo li {
+    margin-bottom: 6px;
+
+    font-size: 15px;
+}
+
+/* =========================================
+   TABELA
+   ========================================= */
+
+.tabela-passeios {
+    width: 100%;
+
+    padding: 70px 20px;
+
+    background: #f1f2f6;
+}
+
+.tabela-cabecalho {
+    max-width: 800px;
+
+    margin: 0 auto 35px;
+
+    text-align: center;
+}
+
+.tabela-cabecalho .secao-subtitulo {
+    color: #0b6e4f;
+}
+
+.tabela-cabecalho h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.tabela-cabecalho p {
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+/* Container para permitir rolagem em telas pequenas */
+
+.tabela-container {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    overflow-x: auto;
+}
+
+/* Tabela */
+
+.tabela-container table {
+    width: 100%;
+
+    min-width: 750px;
+
+    border-collapse: collapse;
+
+    background: #fff;
+}
+
+.tabela-container th,
+.tabela-container td {
+    padding: 16px;
+
+    border: 1px solid #d0d0d0;
+
+    text-align: left;
+
+    vertical-align: middle;
+}
+
+.tabela-container th {
+    background: #1e4e60;
+
+    color: #fff;
+
+    font-size: 15px;
+}
+
+.tabela-container td {
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+.tabela-container tbody tr:nth-child(even) {
+    background: #f7f7f7;
+}
+
+.tabela-container tbody tr:hover {
+    background: #eee;
+}
+
+/* =========================================
+   CTA
+   ========================================= */
+
+.passeios-cta {
+    width: 100%;
+
+    padding: 75px 20px;
+
+    background: var(--cor-destaque2);
+
+    text-align: center;
+}
+
+.passeios-cta-conteudo {
+    max-width: 750px;
+
+    margin: 0 auto;
+}
+
+.passeios-cta .secao-subtitulo {
+    color: #1e4e60;
+}
+
+.passeios-cta h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 40px;
+
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+}
+
+.passeios-cta p {
+    max-width: 650px;
+
+    margin: 0 auto 28px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+/* =========================================
+   PÁGINA FALE CONOSCO
+   ========================================= */
+
+/* INTRODUÇÃO */
+
+.contato-intro {
+    width: calc(100% - 32px);
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 65px 20px 50px;
+
+    text-align: center;
+}
+
+.contato-intro-conteudo {
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+.contato-intro .secao-subtitulo {
+    color: #0b6e4f;
+}
+
+.contato-intro h1 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 42px;
+    line-height: 1.2;
+
+    margin: 0 0 18px;
+}
+
+.contato-intro p {
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   BLOCO PRINCIPAL
+   DADOS + MAPA
+   ========================================= */
+
+.contato {
+    width: calc(100% - 32px);
+    max-width: 1100px;
+
+    margin: 0 auto 55px;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+
+    gap: 30px;
+
+    align-items: stretch;
+}
+
+/* =========================================
+   DADOS DE CONTATO
+   ========================================= */
+
+.contato-informacoes {
+    padding: 32px;
+
+    background: #f1f2f6;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.contato-informacoes .secao-subtitulo {
+    color: #0b6e4f;
+}
+
+.contato-informacoes h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    margin: 0 0 16px;
+}
+
+.contato-informacoes > p {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin: 0 0 25px;
+}
+
+.dados-contato {
+    display: grid;
+
+    gap: 16px;
+}
+
+.dado-contato {
+    display: grid;
+
+    grid-template-columns: 85px 1fr;
+
+    gap: 10px;
+
+    align-items: start;
+}
+
+.dado-contato strong {
+    color: #0b6e4f;
+
+    font-size: 14px;
+}
+
+.dado-contato span {
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+/* =========================================
+   MAPA
+   ========================================= */
+
+.mapa {
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 390px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.mapa iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+/* =========================================
+   FORMULÁRIO
+   ========================================= */
+
+.formulario {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px 25px;
+
+    padding: 32px 40px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-cabecalho {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    margin-bottom: 5px;
+}
+
+.formulario-cabecalho .secao-subtitulo {
+    color: #0b6e4f;
+}
+
+.formulario-cabecalho h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 32px;
+
+    margin: 0 0 8px;
+}
+
+.formulario-cabecalho p {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+/* Campos */
+
+.campo {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.campo label {
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    border: 1px solid #bbb;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    transition: border-color 0.2s ease;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: #0b6e4f;
+}
+
+.mensagem {
+    grid-column: 1 / -1;
+}
+
+.mensagem textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+/* =========================================
+   RADIO
+   ========================================= */
+
+.radio-group {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px 22px;
+
+    padding: 15px 18px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+}
+
+.radio-group legend {
+    width: 100%;
+
+    margin-bottom: 2px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.radio-group label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 14px;
+}
+
+/* =========================================
+   NEWSLETTER
+   ========================================= */
+
+.newsletter {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+.newsletter input {
+    width: 16px;
+    height: 16px;
+}
+
+/* =========================================
+   BOTÃO
+   ========================================= */
+
+.formulario button {
+    grid-column: 1 / -1;
+
+    justify-self: center;
+
+    width: auto;
+
+    min-width: 190px;
+
+    padding: 11px 22px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #0b6e4f;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.formulario button:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+/* =========================================
+   EQUIPE
+   ========================================= */
+
+.equipe {
+    width: calc(100% - 32px);
+    max-width: 1000px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+.equipe-cabecalho {
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+}
+
+.equipe-cabecalho .secao-subtitulo {
+    color: #0b6e4f;
+}
+
+.equipe-cabecalho h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 34px;
+
+    line-height: 1.2;
+
+    margin: 0 0 12px;
+}
+
+.equipe-cabecalho p {
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+/* =========================================
+   PERFIS
+   ========================================= */
+
+.perfis {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+.perfil {
+    padding: 15px;
+
+    background: #fff;
+
+    border: 1px solid #e0e0e0;
+
+    border-radius: 8px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.foto-placeholder {
+    width: 100%;
+
+    max-width: 190px;
+
+    height: 190px;
+
+    margin: 0 auto 14px;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+}
+
+.foto-placeholder img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.perfil h3 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 19px;
+
+    margin: 0 0 4px;
+}
+
+.perfil p {
+    margin: 0;
+
+    color: #0b6e4f;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+/* =========================================
+   CTA
+   ========================================= */
+
+.contato-cta {
+    width: 100%;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    background: var(--cor-destaque2);
+}
+
+.contato-cta h2 {
+    font-family: var(--fonte-titulo);
+
+    font-size: 36px;
+
+    line-height: 1.2;
+
+    margin: 0 0 12px;
+}
+
+.contato-cta p {
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin: 0 0 22px;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .contato-intro {
+        padding-top: 50px;
+    }
+
+    .contato-intro h1 {
+        font-size: 36px;
+    }
+
+    .contato {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .contato-informacoes {
+        min-height: auto;
+
+        padding: 28px;
+    }
+
+    .mapa {
+        height: 350px;
+
+        min-height: 0;
+    }
+
+    .formulario {
+        grid-column: 1;
+
+        grid-template-columns: 1fr;
+
+        padding: 30px;
+    }
+
+    .formulario-cabecalho,
+    .radio-group,
+    .mensagem,
+    .newsletter,
+    .formulario button {
+        grid-column: 1;
+    }
+
+    .perfis {
+        gap: 15px;
+    }
+
+    .foto-placeholder {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .contato-intro {
+        width: calc(100% - 24px);
+
+        padding: 40px 0;
+    }
+
+    .contato-intro h1 {
+        font-size: 30px;
+    }
+
+    .contato-intro p {
+        font-size: 16px;
+    }
+
+    .contato {
+        width: calc(100% - 24px);
+
+        margin-bottom: 50px;
+    }
+
+    .contato-informacoes {
+        padding: 24px;
+    }
+
+    .contato-informacoes h2 {
+        font-size: 28px;
+    }
+
+    .dado-contato {
+        grid-template-columns: 1fr;
+
+        gap: 3px;
+    }
+
+    .mapa {
+        height: 280px;
+    }
+
+    .formulario {
+        padding: 22px;
+
+        gap: 16px;
+    }
+
+    .formulario-cabecalho h2 {
+        font-size: 27px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .formulario button {
+        width: auto;
+
+        min-width: 180px;
+    }
+
+    .equipe {
+        width: calc(100% - 24px);
+
+        margin-bottom: 50px;
+    }
+
+    .equipe-cabecalho h2 {
+        font-size: 29px;
+    }
+
+    .perfis {
+        grid-template-columns: 1fr;
+
+        max-width: 280px;
+
+        gap: 20px;
+    }
+
+    .foto-placeholder {
+        width: 160px;
+        height: 160px;
+    }
+
+    .contato-cta {
+        padding: 50px 20px;
+    }
+
+    .contato-cta h2 {
+        font-size: 29px;
+    }
+
+    .contato-cta p {
+        font-size: 16px;
+    }
+}
+
+/* =========================================
+   RESPONSIVIDADE — PASSEIOS
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .passeios-hero {
+        min-height: 450px;
+    }
+
+    .passeios-hero-conteudo h1 {
+        font-size: 42px;
+    }
+
+    .passeios-hero-conteudo p {
+        font-size: 18px;
+    }
+
+    .passeios-introducao {
+        margin-top: 50px;
+    }
+
+    .passeios-introducao h2 {
+        font-size: 34px;
+    }
+
+    .passeios-lista {
+        grid-template-columns: 1fr;
+
+        max-width: 700px;
+
+        gap: 25px;
+    }
+
+    .passeio-card-imagem {
+        height: 300px;
+    }
+
+    .tabela-passeios {
+        padding: 55px 15px;
+    }
+
+    .tabela-cabecalho h2 {
+        font-size: 34px;
+    }
+
+    .passeios-cta {
+        padding: 60px 20px;
+    }
+
+    .passeios-cta h2 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .passeios-hero {
+        min-height: 430px;
+    }
+
+    .passeios-hero-conteudo {
+        width: 92%;
+
+        padding: 40px 10px;
+    }
+
+    .passeios-hero-conteudo h1 {
+        font-size: 34px;
+    }
+
+    .passeios-hero-conteudo p {
+        font-size: 16px;
+    }
+
+    .passeios-introducao {
+        width: calc(100% - 24px);
+
+        margin-top: 45px;
+    }
+
+    .passeios-introducao h2 {
+        font-size: 30px;
+    }
+
+    .passeios-introducao p {
+        font-size: 16px;
+    }
+
+    .passeios-lista {
+        width: calc(100% - 24px);
+
+        margin-bottom: 55px;
+    }
+
+    .passeio-card-imagem {
+        height: 240px;
+    }
+
+    .passeio-card-conteudo {
+        padding: 22px;
+    }
+
+    .passeio-card-conteudo h2 {
+        font-size: 26px;
+    }
+
+    .tabela-cabecalho h2 {
+        font-size: 30px;
+    }
+
+    .tabela-container th,
+    .tabela-container td {
+        padding: 12px;
+    }
+
+    .passeios-cta {
+        padding: 50px 20px;
+    }
+
+    .passeios-cta h2 {
+        font-size: 30px;
+    }
+
+    .passeios-cta p {
+        font-size: 16px;
+    }
+}
+
+/* =========================================
+   RESPONSIVIDADE — SOBRE NÓS
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .sobre-galeria {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .sobre-galeria figure:nth-child(4),
+    .sobre-galeria figure:nth-child(5) {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .sobre-hero {
+        height: 450px;
+    }
+
+    .sobre-hero-conteudo h1 {
+        font-size: 42px;
+    }
+
+    .sobre-hero-conteudo p {
+        font-size: 18px;
+    }
+
+    .sobre-historia {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        margin: 50px auto;
+    }
+
+    .sobre-historia-texto {
+        padding: 0;
+    }
+
+    .sobre-historia-imagem img {
+        height: 350px;
+    }
+
+    .sobre-experiencia {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .sobre-experiencia-texto {
+        padding: 0;
+    }
+
+    .sobre-experiencia-imagem img {
+        height: 350px;
+    }
+
+    .sobre-aventuras {
+        margin: 50px auto;
+    }
+
+    .sobre-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sobre-aventuras-cabecalho h2,
+    .sobre-cta h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .sobre-hero {
+        height: 430px;
+    }
+
+    .sobre-hero-conteudo {
+        width: 92%;
+    }
+
+    .sobre-hero-conteudo h1 {
+        font-size: 34px;
+    }
+
+    .sobre-hero-conteudo p {
+        font-size: 16px;
+    }
+
+    .sobre-historia,
+    .sobre-aventuras {
+        width: calc(100% - 24px);
+    }
+
+    .sobre-historia h2,
+    .sobre-experiencia h2 {
+        font-size: 30px;
+    }
+
+    .sobre-historia p,
+    .sobre-experiencia p {
+        font-size: 16px;
+    }
+
+    .sobre-historia-imagem img,
+    .sobre-experiencia-imagem img {
+        height: 280px;
+    }
+
+    .sobre-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-galeria img {
+        height: 240px;
+    }
+
+    .sobre-cta {
+        padding: 50px 20px;
+    }
+
+    .sobre-cta h2 {
+        font-size: 30px;
     }
 }
